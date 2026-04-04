@@ -37,18 +37,18 @@ target_link_libraries(${PROJECT_NAME} PRIVATE caches_lru)
 enable_testing()
 
 add_executable(
-  hello_test
+  test_lru_e2e
   tests/test_lru/test_lru.cpp
 )
 target_link_libraries(
-  hello_test
+  test_lru_e2e
   PRIVATE
   caches_lru
   GTest::gtest_main
 )
 
 include(GoogleTest)
-gtest_discover_tests(hello_test)
+gtest_discover_tests(test_lru_e2e)
 
 # End-to-end tests: each .dat input must have a matching .ans expected output.
 file(GLOB E2E_INPUTS CONFIGURE_DEPENDS tests/test_lru_e2e/*.dat)
