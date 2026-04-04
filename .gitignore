@@ -5,3 +5,6 @@
 
 # vscode
 .vscode
+
+# local codex preferences
+.codex

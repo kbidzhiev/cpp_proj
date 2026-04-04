@@ -1,10 +1,9 @@
-#include "lru.hpp"
 
 namespace caches
 {
 
     template <typename T, typename KeyT>
-    LRUcache_t<T, KeyT>::LRUcache_t(const size_t sz) : sz_(sz) {}
+    LRUcache_t<T, KeyT>::LRUcache_t(const std::size_t sz) : sz_(sz) {}
 
     template <typename T, typename KeyT>
     template <typename F>
