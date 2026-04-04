@@ -26,18 +26,18 @@ FetchContent_MakeAvailable(googletest)
 
 # Unit tests
 add_executable(
-  test_lru_unit
+  test_lru
   tests/test_lru/test_lru.cpp
 )
 target_link_libraries(
-  test_lru_unit
+  test_lru
   PRIVATE
   caches_lru
   GTest::gtest_main
 )
 
 include(GoogleTest)
-gtest_discover_tests(test_lru_unit)
+gtest_discover_tests(test_lru)
 
 # End-to-end tests (.dat input, .ans expected output)
 file(GLOB E2E_INPUTS CONFIGURE_DEPENDS tests/test_lru/e2e/*.dat)

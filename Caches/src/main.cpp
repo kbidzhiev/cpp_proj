@@ -1,6 +1,6 @@
 #include <iostream>
 #include <cassert>
-#include "lru.hpp"
+#include "caches/lru.hpp"
 
 
 int slow_get_page(int id){return id;}

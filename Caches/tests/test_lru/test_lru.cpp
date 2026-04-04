@@ -1,6 +1,6 @@
 #include <gtest/gtest.h>
 #include <string>
-#include "lru.hpp"
+#include "caches/lru.hpp"
 
 namespace {
 int SlowGetPage(int key) { return key * 10; }
