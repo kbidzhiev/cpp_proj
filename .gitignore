@@ -1,6 +1,7 @@
 # object-files
 *.out
 */build
+**/build*
 
 
 # vscode

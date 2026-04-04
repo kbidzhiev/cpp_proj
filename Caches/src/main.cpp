@@ -16,7 +16,6 @@ int main() {
   caches::LRUCache_t<int> c{m};
 
   for (int i = 0; i < n; ++i) {
-    //std::cout << "step: " << i << std::endl;
     int q;
     std::cin >> q;
     assert(std::cin.good() || std::cin.eof());

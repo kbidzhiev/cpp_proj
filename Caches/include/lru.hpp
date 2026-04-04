@@ -1,6 +1,5 @@
 #pragma once
 #include <cstddef>
-#include <iterator>
 #include <list>
 #include <unordered_map>
 #include <utility>
