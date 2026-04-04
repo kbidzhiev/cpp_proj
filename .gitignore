@@ -1,7 +1,11 @@
 # object-files
 *.out
 */build
+**/build*
 
 
 # vscode
 .vscode
+
+# local codex preferences
+.codex

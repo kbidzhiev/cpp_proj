@@ -1,11 +1,7 @@
 #include <iostream>
 #include <cassert>
-#include "lru.hpp"
+#include "caches/lru.hpp"
 
-struct page_t{
-  int index;
-  int *data;
-};
 
 int slow_get_page(int id){return id;}
 
@@ -17,15 +13,15 @@ int main() {
 
   std::cin >> m >> n;
   assert(std::cin.good());
-  caches::LRUcache_t<int> c{m};
+  caches::LRUCache_t<int> c{m};
 
   for (int i = 0; i < n; ++i) {
     int q;
     std::cin >> q;
-    assert(std::cin.good());
+    assert(std::cin.good() || std::cin.eof());
     if (c.lookup_update(q, slow_get_page))
       hits += 1;
   }
 
-  std::cout << "hits "<< hits << std::endl;
+  std::cout << hits << std::endl;
 }
