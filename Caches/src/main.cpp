@@ -2,10 +2,6 @@
 #include <cassert>
 #include "lru.hpp"
 
-struct page_t{
-  int index;
-  int *data;
-};
 
 int slow_get_page(int id){return id;}
 
@@ -20,12 +16,13 @@ int main() {
   caches::LRUCache_t<int> c{m};
 
   for (int i = 0; i < n; ++i) {
+    //std::cout << "step: " << i << std::endl;
     int q;
     std::cin >> q;
-    assert(std::cin.good());
+    assert(std::cin.good() || std::cin.eof());
     if (c.lookup_update(q, slow_get_page))
       hits += 1;
   }
 
-  std::cout << "hits "<< hits << std::endl;
+  std::cout << hits << std::endl;
 }
