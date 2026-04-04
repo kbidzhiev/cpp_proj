@@ -37,24 +37,24 @@ target_link_libraries(${PROJECT_NAME} PRIVATE caches_lru)
 enable_testing()
 
 add_executable(
-  test_lru_e2e
+  test_lru_unit
   tests/test_lru/test_lru.cpp
 )
 target_link_libraries(
-  test_lru_e2e
+  test_lru_unit
   PRIVATE
   caches_lru
   GTest::gtest_main
 )
 
 include(GoogleTest)
-gtest_discover_tests(test_lru_e2e)
+gtest_discover_tests(test_lru_unit)
 
 # End-to-end tests: each .dat input must have a matching .ans expected output.
-file(GLOB E2E_INPUTS CONFIGURE_DEPENDS tests/test_lru_e2e/*.dat)
+file(GLOB E2E_INPUTS CONFIGURE_DEPENDS tests/test_lru/e2e/*.dat)
 foreach(input_file IN LISTS E2E_INPUTS)
   get_filename_component(test_name "${input_file}" NAME_WE)
-  set(answer_file "${CMAKE_CURRENT_SOURCE_DIR}/tests/test_lru_e2e/${test_name}.ans")
+  set(answer_file "${CMAKE_CURRENT_SOURCE_DIR}/tests/test_lru/e2e/${test_name}.ans")
 
   if(NOT EXISTS "${answer_file}")
     message(FATAL_ERROR "Missing answer file for ${input_file}: ${answer_file}")
@@ -66,6 +66,6 @@ foreach(input_file IN LISTS E2E_INPUTS)
       -DAPP=$<TARGET_FILE:${PROJECT_NAME}>
       -DINPUT_FILE=${input_file}
       -DANSWER_FILE=${answer_file}
-      -P ${CMAKE_CURRENT_SOURCE_DIR}/tests/test_lru_e2e/run_case.cmake
+      -P ${CMAKE_CURRENT_SOURCE_DIR}/tests/test_lru/e2e/run_case.cmake
   )
 endforeach()
