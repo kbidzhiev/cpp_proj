@@ -17,7 +17,7 @@ int main() {
 
   std::cin >> m >> n;
   assert(std::cin.good());
-  caches::LRUcache_t<int> c{m};
+  caches::LRUCache_t<int> c{m};
 
   for (int i = 0; i < n; ++i) {
     int q;

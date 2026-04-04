@@ -3,23 +3,25 @@
 #include <iterator>
 #include <list>
 #include <unordered_map>
+#include <utility>
 
 namespace caches
 {
 
     template <typename T, typename KeyT = int>
-    class LRUcache_t
+    class LRUCache_t
     {
-    private:
+        using Node = std::pair<KeyT, T>;
+        using ListIt = typename std::list<Node>::iterator;
+
         const std::size_t sz_;
-        std::list<T> data_;
-        using ListIt = typename std::list<T>::iterator;
+        std::list<Node> data_;
         std::unordered_map<KeyT, ListIt> hash_;
 
         bool is_full() const;
 
     public:
-        LRUcache_t(const std::size_t sz_);
+        LRUCache_t(const std::size_t sz_);
 
         template <typename F>
         bool lookup_update(KeyT key, F slow_get_page);
