@@ -15,7 +15,7 @@ namespace caches
 
         if (it == hash_.end())
         {
-            if (is_full())
+            if (LRUCache_t<T, KeyT>::is_full())
             {
                 hash_.erase(data_.back().first);
                 data_.pop_back();
