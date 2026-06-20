@@ -7,13 +7,11 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
 
-add_subdirectory(hello_world_lib)
 add_subdirectory(main)
+add_subdirectory(hello_world_lib)
 
 
 include(CTest)
-if(BUILD_TESTING)
-  add_subdirectory(tests)
-endif()
+add_subdirectory(tests)
 
 
