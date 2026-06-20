@@ -8,10 +8,12 @@
 
 ## CMAKE
 
+
 ```bash
-cmake -B build  # generates Makefiles into folder `build`
-cmake --build build  # compiles according to Makefiles from `build`
-./build/hello  # runs hello world
+cmake -S . -B build -G Ninja \
+  -DCMAKE_C_COMPILER=gcc-14 \
+  -DCMAKE_CXX_COMPILER=g++-14
+
+cmake --build build
+ctest --test-dir build --output-on-failure
 ```
-
-
