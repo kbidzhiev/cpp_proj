@@ -13,12 +13,11 @@ add_executable(caches_test
   LRU_test.cpp
 )
 
-target_compile_options(caches_test PRIVATE
-    -Wall
-    -Wextra
-    -Werror
+target_compile_options(caches_test
+  PRIVATE
+    $<$<CXX_COMPILER_ID:MSVC>:/W4 /WX>
+    $<$<CXX_COMPILER_ID:GNU,Clang>:-Wall -Wextra -Werror>
 )
-
 
 target_link_libraries(caches_test
   PRIVATE

@@ -6,11 +6,3 @@ target_sources(LRU
     FILES
     LRU.hpp
 )
-
-
-target_compile_options(LRU
-  INTERFACE
-    -Wall
-    -Wextra
-    -Werror
-)
