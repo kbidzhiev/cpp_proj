@@ -13,4 +13,5 @@ target_compile_options(main
 target_link_libraries(main
   PRIVATE
     LRU 
+    LFU
 )

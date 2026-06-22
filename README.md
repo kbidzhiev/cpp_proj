@@ -1,6 +1,16 @@
 # cpp_proj
 
+How to run
 
+```bash
+./build/main/main <<< "2 6 3 3 1 2 1 2"
+```
+output is 
+```bash
+Cahce type \t N hits
+type1\tN1
+type2\tN2
+```
 
 
 
