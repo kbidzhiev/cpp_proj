@@ -9,16 +9,6 @@
 
 int slow_get_page(int key) { return key; }
 
-std::vector<std::pair<int, int>>
-download_all_pages(const std::vector<int> &keys) {
-  std::vector<std::pair<int, int>> pages;
-  pages.reserve(keys.size());
-  for (const auto key : keys) {
-    pages.emplace_back(key, slow_get_page(key));
-  }
-  return pages;
-}
-
 int main() {
   size_t sz;
   int nelts;
@@ -32,8 +22,7 @@ int main() {
     keys.push_back(key);
   }
 
-  auto pages = download_all_pages(keys);
-  cache::perfect_t<int> perfect_cache(sz, pages);
+  cache::perfect_t<int> perfect_cache(sz, keys);
   cache::LRU_t<int> lru{sz};
   cache::LFU_t<int> lfu{sz};
   std::map<std::string, int> cache_hits;
