@@ -15,7 +15,7 @@ int slow_get_page(int key) { return key; }
 std::vector<int> generate_rnd_keys(size_t n, size_t mod = 100) {
   std::vector<int> keys(n);
   std::generate(keys.begin(), keys.end(),
-                [&]() { return static_cast<size_t>(rand() % mod); });
+                [&]() { return static_cast<int>(rand() % mod); });
   return keys;
 }
 
